@@ -1,0 +1,14 @@
+/***** HTML Elements *****/
+
+/***** Custom Classes *****/
+/* navbar */
+.navbar {
+    margin-bottom: 0;
+}
+
+/* main section */
+#main-section {
+    background-image: url("../images/money_pile.jpg");
+    background-size: cover;
+    height: 100%;
+}
