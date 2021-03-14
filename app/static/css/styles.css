@@ -20,28 +20,18 @@ hr {
 }
 
 /***** Custom Classes *****/
+
 /* navbar */
 .navbar {
     margin-bottom: 0;
 }
 
-/* main section */
+/* index page */
 #main-section {
     background-image: url("../images/money_pile.jpg");
     background-size: cover;
     height: 100%;
     padding: 5% 5%;
-}
-
-.login-form {
-    background-color: #fff;
-    opacity: 0.95;
-    border-radius: 15px;
-    text-align: center;
-    margin: 5% 35%;
-    padding: 10px;
-    border-width: 1px;
-    border-style: solid;
 }
 
 .index-info {
@@ -54,16 +44,25 @@ hr {
     border-style: solid;
 }
 
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td,
+.table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    vertical-align: middle;
+}
+
+.stock-table {
+    margin-bottom: 5px;
+}
+
+.ticker {
+    color: grey;
+}
+
 .pos-return {
     background-color: #9cf4dc;
 }
 
 .neg-return {
     background-color: #ffe1e1;
-}
-
-.ticker {
-    color: grey;
 }
 
 .fa-plus-square {
@@ -75,13 +74,16 @@ hr {
     font-size: 1.2em;
 }
 
-.stock-table {
-    margin-bottom: 5px;
-}
-
-.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td,
-.table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
-    vertical-align: middle;
+/* login and registration pages */
+.login-form {
+    background-color: #fff;
+    opacity: 0.95;
+    border-radius: 15px;
+    text-align: center;
+    margin: 5% 35%;
+    padding: 10px;
+    border-width: 1px;
+    border-style: solid;
 }
 
 .error-text {
