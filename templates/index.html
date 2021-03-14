@@ -2,9 +2,10 @@
 {% import "bootstrap/wtf.html" as wtf %}
 
 {% block styles %}
-    {{ super() }}
-    <link rel="stylesheet" href="{{ url_for('.static', filename='css/styles.css')}}">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Ubuntu:wght@300;400;500&display=swap" rel="stylesheet">
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('.static', filename='css/styles.css')}}">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Ubuntu:wght@300;400;500&display=swap"
+      rel="stylesheet">
 {% endblock %}
 
 {% block title %}Investment Tracker{% endblock %}
@@ -17,15 +18,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+  <meta charset="UTF-8">
+  <title>Title</title>
 </head>
 <body>
-    <div id="main-section">
-        <div class="login-form">
-            <h2>Placeholder</h2>
-        </div>
+
+<div id="main-section">
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="index-info">
+        <h3>Global Stock Indices</h3>
+        <table class="table table-condensed">
+          <thead>
+          <tr>
+            <th scope="col">Index Name</th>
+            <th scope="col">Daily Point Change</th>
+            <th scope="col">Daily % Change</th>
+            <th scope="col">Date</th>
+          </tr>
+          </thead>
+          <tbody>
+          {% for stock, stats in stocks.items() %}
+          <tr>
+            <th scope="row">{{ stock }}<br><span class="ticker">{{ stats["ticker"] }}</span>
+            </th>
+            {% if stats["percentage"] < 0 %}
+            <td class="neg-return">{{ stats["points"] }}</td>
+            <td class="neg-return">{{ stats["percentage"] }} %</td>
+            {% else %}
+            <td class="pos-return">+{{ stats["points"] }}</td>
+            <td class="pos-return">{{ stats["percentage"] }} %</td>
+            {% endif %}
+            <td>{{ date }}</td>
+          </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+        <p><a href="">Sign in</a> to track other stock and bond indices.</p>
+      </div>
     </div>
+    <div class="col-sm-6">
+      <div class="index-info">
+        <h3>Global Bond Indices</h3>
+        <table class="table table-condensed">
+          <thead>
+          <tr>
+            <th scope="col">Index Name</th>
+            <th scope="col">Daily Point Change</th>
+            <th scope="col">Daily % Change</th>
+            <th scope="col">Date</th>
+          </tr>
+          </thead>
+          <tbody>
+          {% for bond, stats in bonds.items() %}
+          <tr>
+            <th scope="row">{{ bond }}<br><span class="ticker">{{ stats["ticker"] }}</span>
+            </th>
+            {% if stats["percentage"] < 0 %}
+            <td class="neg-return">{{ stats["points"] }}</td>
+            <td class="neg-return">{{ stats["percentage"] }} %</td>
+            {% else %}
+            <td class="pos-return">+{{ stats["points"] }}</td>
+            <td class="pos-return">{{ stats["percentage"] }} %</td>
+            {% endif %}
+            <td>{{ date }}</td>
+          </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+        <p><a href="">Sign in</a> to track other stock and bond indices.</p>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
 </html>
 
