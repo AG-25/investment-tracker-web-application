@@ -1,4 +1,4 @@
-# Wealth Tracker Web Application
+# Investment Tracker Web Application
 
 This is an ongoing project, which is being done with the aim of creating a Flask application that allows users to register and then track investments on a dashboard (stock indices, bond indices, individual stocks), as well as plotting their own investment returns over time and estimating future returns. 
 
