@@ -2,7 +2,7 @@ from flask import flash, render_template, redirect, url_for
 from app import app, db
 from app.forms import LoginForm, RegistrationForm
 import datetime as dt
-from flask_login import current_user, login_user, logout_user
+from flask_login import current_user, login_user, logout_user, login_required
 from app.models import User
 
 
@@ -67,3 +67,9 @@ def register():
         flash("You have been registered successfully!")
         return redirect(url_for('login'))
     return render_template("register.html", form=form)
+
+
+@app.route('/add_stock', methods=['GET', 'POST'])
+@login_required
+def add_stock():
+    return redirect(url_for('index'))

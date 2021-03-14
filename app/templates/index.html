@@ -49,10 +49,17 @@
         </table>
         <table>
           <tr>
-            <td><i class="fas fa-plus-square fa-2x"></i></td>
+            {% if current_user.is_anonymous %}
+            <td><a href="{{ url_for('login') }}"><i class="fas fa-plus-square fa-2x"></i></a></td>
             <td>
               <p class="sign-in-text"><a href="{{ url_for('login') }}">Sign in</a> to track other stock and bond indices.</p>
             </td>
+            {% else %}
+            <td><a href="{{ url_for('add_stock') }}"><i class="fas fa-plus-square fa-2x"></i></a></td>
+            <td>
+              <p class="sign-in-text"> Track another stock or bond index.</p>
+            </td>
+            {% endif %}
           </tr>
         </table>
       </div>
@@ -89,10 +96,17 @@
         </table>
         <table>
           <tr>
-            <td><i class="fas fa-plus-square fa-2x"></i></td>
+            {% if current_user.is_anonymous %}
+            <td><a href="{{ url_for('login') }}"><i class="fas fa-plus-square fa-2x"></i></a></td>
             <td>
               <p class="sign-in-text"><a href="{{ url_for('login') }}">Sign in</a> to track other stock and bond indices.</p>
             </td>
+            {% else %}
+            <td><a href="{{ url_for('add_stock') }}"><i class="fas fa-plus-square fa-2x"></i></a></td>
+            <td>
+              <p class="sign-in-text"> Track another stock or bond index.</p>
+            </td>
+            {% endif %}
           </tr>
         </table>
       </div>
