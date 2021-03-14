@@ -1,25 +1,8 @@
 from flask import Flask, render_template, redirect, url_for
-from flask_bootstrap import Bootstrap
-from flask_sqlalchemy import SQLAlchemy
-from flask_login import LoginManager, current_user, login_user, logout_user
-from flask_migrate import Migrate
+from app import db, app
 from app.forms import LoginForm
 import datetime as dt
 import os
-
-basedir = os.path.abspath(os.path.dirname(__file__))
-
-app = Flask(__name__)
-app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
-app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get('DATABASE_URL') or \
-                          'sqlite:///' + os.path.join(basedir, 'app.db')
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-
-Bootstrap(app)
-db = SQLAlchemy(app)
-migrate = Migrate(app, db)
-login = LoginManager(app)
-login.login_view = 'login'
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -49,18 +32,10 @@ def home_page():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    if current_user.is_authenticated:
-        return redirect(url_for('home_page'))
     form = LoginForm()
     return render_template("login.html", form=form)
 
 
 @app.route('/login', methods=['GET', 'POST'])
 def register():
-    if current_user.is_authenticated:
-        return redirect(url_for('index'))
-    form = LoginForm()
-    return render_template("register.html", form=form)
-
-if __name__ == '__main__':
-    app.run()
+    return render_template("register.html")
