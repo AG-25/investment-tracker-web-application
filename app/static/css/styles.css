@@ -89,3 +89,8 @@ hr {
 .error-text {
     color: red;
 }
+
+/* HTTP Error Pages */
+.http-error {
+    margin: 10px;
+}
