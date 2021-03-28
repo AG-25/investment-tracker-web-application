@@ -1,4 +1,4 @@
-from flask import flash, render_template, redirect, url_for
+from flask import flash, render_template, redirect, url_for, request
 from app import app, db
 from app.forms import LoginForm, RegistrationForm
 import datetime as dt
@@ -74,4 +74,6 @@ def register():
 @app.route('/add_stock', methods=['GET', 'POST'])
 @login_required
 def add_stock():
+    stock_name = request.args.get("stock_name")
+    print(stock_name)
     return redirect(url_for('index'))

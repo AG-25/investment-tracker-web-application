@@ -20,6 +20,15 @@ hr {
 }
 
 /***** Custom Classes *****/
+/* alignment */
+.align-left {
+    text-align: left;
+}
+
+/* margin */
+.no-margin {
+    margin: 0;
+}
 
 /* navbar */
 .navbar {
@@ -72,6 +81,10 @@ hr {
 .sign-in-text {
     margin: 0 5px;
     font-size: 1.2em;
+}
+
+.new-form {
+    display: none;
 }
 
 /* login and registration pages */

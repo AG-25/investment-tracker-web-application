@@ -48,20 +48,24 @@
           </tbody>
         </table>
         <table>
-          <tr>
+          <tr class="search-path">
             {% if current_user.is_anonymous %}
             <td><a href="{{ url_for('login') }}"><i class="fas fa-plus-square fa-2x"></i></a></td>
             <td>
               <p class="sign-in-text"><a href="{{ url_for('login') }}">Sign in</a> to track other stock and bond indices.</p>
             </td>
             {% else %}
-            <td><a href="{{ url_for('add_stock') }}"><i class="fas fa-plus-square fa-2x"></i></a></td>
+            <td><a href="{{ url_for('add_stock') }}"><i class="fas fas-logged-in fa-plus-square fa-2x"></i></a></td>
             <td>
               <p class="sign-in-text"> Track another stock or bond index.</p>
             </td>
             {% endif %}
           </tr>
         </table>
+        <form class='align-left no-margin new-form' action="{{ url_for('add_stock') }}" method="GET">
+          <input type='text' name='stock_name' placeholder='Security name (e.g. "Apple")'>
+          <button type='submit' class='btn btn-primary btn-sm'>Search</button>
+        </form>
       </div>
     </div>
     <div class="col-sm-6">
@@ -95,23 +99,29 @@
           </tbody>
         </table>
         <table>
-          <tr>
+          <tr class="search-path">
             {% if current_user.is_anonymous %}
             <td><a href="{{ url_for('login') }}"><i class="fas fa-plus-square fa-2x"></i></a></td>
             <td>
               <p class="sign-in-text"><a href="{{ url_for('login') }}">Sign in</a> to track other stock and bond indices.</p>
             </td>
             {% else %}
-            <td><a href="{{ url_for('add_stock') }}"><i class="fas fa-plus-square fa-2x"></i></a></td>
+            <td><i class="fas fas-logged-in fa-plus-square fa-2x"></i></td>
             <td>
               <p class="sign-in-text"> Track another stock or bond index.</p>
             </td>
             {% endif %}
           </tr>
         </table>
+        <form class='align-left no-margin new-form' action="{{ url_for('add_stock') }}" method="GET">
+          <input type='text' name='stock_name' placeholder='Security name (e.g. "Apple")'>
+          <button type='submit' class='btn btn-primary btn-sm'>Search</button>
+        </form>
       </div>
     </div>
   </div>
 </div>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="{{ url_for('.static', filename='js/index.js')}}" crossorigin="anonymous"></script>
 {% endblock %}
