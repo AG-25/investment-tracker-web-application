@@ -17,6 +17,14 @@
 <div id="main-section">
   <form class="login-form" action="" method="post">
     <h2>Login</h2>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+          {% for message in messages %}
+            <span class="error-text">[{{ message }}]</span>
+          {% endfor %}
+      {% endif %}
+    {% endwith %}
+
     {{ form.hidden_tag() }}
     <div class="form-group">
       {{ form.username.label }}:<br>
