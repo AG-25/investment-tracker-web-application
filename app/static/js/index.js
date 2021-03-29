@@ -4,5 +4,5 @@ $(".fas-logged-in").on("click", function() {
 });
 
 function addSearch() {
-    $(".new-form").show(500);
+    $(".new-form").show();
 }

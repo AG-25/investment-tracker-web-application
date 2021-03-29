@@ -55,14 +55,14 @@
               <p class="sign-in-text"><a href="{{ url_for('login') }}">Sign in</a> to track other stock and bond indices.</p>
             </td>
             {% else %}
-            <td><a href="{{ url_for('add_stock') }}"><i class="fas fas-logged-in fa-plus-square fa-2x"></i></a></td>
+            <td><a href="{{ url_for('search_stock') }}"><i class="fas fas-logged-in fa-plus-square fa-2x"></i></a></td>
             <td>
               <p class="sign-in-text"> Track another stock or bond index.</p>
             </td>
             {% endif %}
           </tr>
         </table>
-        <form class='align-left no-margin new-form' action="{{ url_for('add_stock') }}" method="GET">
+        <form class='align-left no-margin new-form' action="{{ url_for('search_stock') }}" method="GET">
           <input type='text' name='stock_name' placeholder='Security name (e.g. "Apple")'>
           <button type='submit' class='btn btn-primary btn-sm'>Search</button>
         </form>
@@ -113,7 +113,7 @@
             {% endif %}
           </tr>
         </table>
-        <form class='align-left no-margin new-form' action="{{ url_for('add_stock') }}" method="GET">
+        <form class='align-left no-margin new-form' action="{{ url_for('search_stock') }}" method="GET">
           <input type='text' name='stock_name' placeholder='Security name (e.g. "Apple")'>
           <button type='submit' class='btn btn-primary btn-sm'>Search</button>
         </form>

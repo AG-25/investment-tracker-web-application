@@ -4,7 +4,9 @@ from app.forms import LoginForm, RegistrationForm
 import datetime as dt
 from flask_login import current_user, login_user, logout_user, login_required
 from app.models import User
+from app.data_manager import DataManager
 
+data_manager = DataManager()
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -71,9 +73,16 @@ def register():
     return render_template("register.html", form=form)
 
 
-@app.route('/add_stock', methods=['GET', 'POST'])
+@app.route('/search_stock', methods=['GET'])
+@login_required
+def search_stock():
+    stock_name = request.args.get("stock_name")
+    search_results = data_manager.search_stock(stock_name)
+    print(search_results)
+    return render_template('search_results.html', search_results=search_results['bestMatches'])
+
+
+@app.route('/add_stock', methods=['GET'])
 @login_required
 def add_stock():
-    stock_name = request.args.get("stock_name")
-    print(stock_name)
-    return redirect(url_for('index'))
+    pass

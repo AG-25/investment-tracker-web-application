@@ -1,0 +1,26 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('.static', filename='css/styles.css')}}">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Ubuntu:wght@300;400;500&display=swap"
+      rel="stylesheet">
+{% endblock %}
+
+{% block title %}Investment Tracker{% endblock %}
+
+{% include "header.html" %}
+
+{% block content %}
+
+<div id="main-section">
+  <div class="index-info">
+    <h3>Pick the Security to Track:</h3>
+    {% for result in search_results %}
+    <p>{{ result["1. symbol"] }} - {{ result["2. name"] }} {{ result["3. type"] }} - {{ result["4. region"] }} ({{ result["8. currency"] }})</p>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}
