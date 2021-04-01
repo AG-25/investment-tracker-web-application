@@ -36,6 +36,7 @@ class User(UserMixin, db.Model):
 class Security(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     security_name = db.Column(db.String(64), index=True, unique=True)
+    region = db.Column(db.String(64))
     price = db.Column(db.Integer)
     date_last_checked = db.Column(db.DateTime)
 
